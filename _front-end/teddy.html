@@ -77,8 +77,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col jumbotron bg-light font-italic">
-                <h1 class="h2">Découvrez nos produits</h1>
+            <div class="col font-italic text-primary">
+                <h1 class="h2">Ourson</h1>
             </div>
         </div>
     </div>
@@ -89,37 +89,15 @@
 
     <main class="container">
 
-        <div class="row" id="productList">
-            <div class="col-12 col-md-4">
-                <div class="card mb-4 border-light shadow">
-                    <img src="../back-end/images/teddy_1.jpg" alt="Ours en peluche faits main" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-title h4 font-weight-bold">Ours en peluche</p>
-                        <p class="card-text">Un magnifique ours en peluche fait à la main pour un cadeau unique.</p>
-                        <a class="btn btn-primary stretched-link" href="lessons-1.html" role="button">Découvrir le
-                            produit</a>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col">
+
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card mb-4 border-light shadow">
-                    <img src="../back-end/images/vcam_1.jpg" alt="Caméras vintage" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-title h4 font-weight-bold">Caméras vintage</p>
-                        <p class="card-text">Ces superbes objets de collection vous étonneront par leurs qualités.</p>
-                        <a class="btn btn-primary stretched-link" href="#" role="button">Découvrir le produit</a>
-                    </div>
-                </div>
+            <div class="col">
+
             </div>
-            <div class="col-12 col-md-4">
-                <div class="card mb-4 border-light shadow">
-                    <img src="../back-end/images/oak_1.jpg" alt="Meubles en chêne" class="card-img-top">
-                    <div class="card-body">
-                        <p class="card-title h4 font-weight-bold">Meubles en chêne</p>
-                        <p class="card-text">Un matériau noble magnifiquement travaillé pour un meuble d'exception.</p>
-                        <a class="btn btn-primary stretched-link" href="#" role="button">Découvrir le produit</a>
-                    </div>
-                </div>
+            <div class="col">
+
             </div>
         </div>
 
@@ -159,16 +137,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("#searchInput").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#productList .col-12").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-    </script>
 
 </body>
 
