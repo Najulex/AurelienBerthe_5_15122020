@@ -1,25 +1,18 @@
-/* Affichage des différents éléments sur la page d'accueil pour chaque produit
-Nom - Description - Prix - image */
+/* Affichage des différents éléments sur la page d'accueil pour chaque produit*/
 
 var request = new XMLHttpRequest();
 request.onreadystatechange = function () {
   if (this.readyState == XMLHttpRequest.DONE) {
     var response = JSON.parse(this.responseText);
     for (let i = 0; i < response.length; i++) {
-      document.getElementById("name_" + (i + 1)).innerHTML = response[i].name;
-    }
-    for (let i = 0; i < response.length; i++) {
-      document.getElementById("description_" + (i + 1)).innerHTML =
-        response[i].description;
-    }
-    for (let i = 0; i < response.length; i++) {
-      document.getElementById("price_" + (i + 1)).innerHTML =
-        parseInt(response[i].price) / 100 + "€";
-    }
-    for (let i = 0; i < response.length; i++) {
-      document
-        .getElementById("pic_" + (i + 1))
-        .setAttribute("src", "../images/teddy_" + (i + 1) + ".jpg");
+      document.getElementById("productsList").innerHTML +=
+        '<div class="col-12 col-sm-6 col-lg-4 d-flex align-items-stretch"><div class="card mb-4 border-light shadow"><img alt="Ours en peluche" class="card-img-top" src=' +
+        response[i].imageUrl +
+        '><div class="card-body" id="card"><div class="text-center"><p class="card-title h4 font-weight-bold">' +
+        response[i].name +
+        '</p></div><div class="text-center"><a class="btn btn-primary stretched-link text-light" role="button" href="./produit.html?' +
+        response[i]._id +
+        '">Découvrir le produit</a></div></div></div></div>';
     }
   }
 };

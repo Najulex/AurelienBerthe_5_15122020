@@ -22,7 +22,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <!-- style CSS - default font -->
+    <!--script JS-->
+
+    <script src="index.js"></script>
+
+    <!-- style CSS -->
 
     <style>
         body {
@@ -34,7 +38,7 @@
         }
     </style>
 
-    <title>Orinoco - Vente en ligne de produit de qualité</title>
+    <title>Orinoco - Panier</title>
 
 </head>
 
@@ -47,20 +51,18 @@
         <div>
             <div class="container-fluid">
                 <nav class="row navbar navbar-expand-sm navbar-light">
-                    <a href="./index.html" class="col-12 col-sm-3 navbar-brand" title="revenir à l'accueil"><img
+                    <a href="./index.html" class="navbar-brand" title="revenir à l'accueil"><img
                             src="./pics/orinoco-logo.png" alt="logo d'Orinoco" width="120" height="40"></a>
-                    <input class="col-8 col-sm-5 form-control" id="searchInput" type="text"
-                        placeholder="Que cherchez-vous ?">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div id="navbarContent" class="col-4 collapse navbar-collapse d-flex-sm flex-row-reverse">
+                    <div id="navbarContent" class="collapse navbar-collapse d-flex-sm flex-row-reverse">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
                                 <a class="nav-link" href="index.html" title="revenir à l'accueil">Accueil</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" title="voir mon panier"><i
+                                <a class="nav-link" href="panier.html" title="voir mon panier"><i
                                         class="fas fa-shopping-cart mr-1"></i>Panier</a>
                             </li>
                         </ul>
@@ -77,8 +79,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col font-italic text-primary">
-                <h1 class="h2">Ourson</h1>
+            <div class="col jumbotron bg-light font-italic">
+                <h1 class="h2">Contenu de votre panier</h1>
             </div>
         </div>
     </div>
@@ -87,18 +89,59 @@
 
     <!-- MAIN -->
 
-    <main class="container">
+    <main class="container shadow pt-5">
 
         <div class="row">
-            <div class="col">
-
+            <div class="col text-center">
+                <p><i class="fas fa-shopping-cart mr-2"></i>Votre panier Orinoco est vide</p>
+                <p><a href="index.html">Commencez mes achats</a></p>
             </div>
-            <div class="col">
+        </div>
 
-            </div>
-            <div class="col">
-
-            </div>
+        <div class="mt-5 mb-5 pb-4 pt-4">
+            <form class="needs-validation" novalidate>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom01">Prénom</label>
+                        <input type="text" class="form-control" id="validationCustom01" placeholder="Prénom" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom02">Nom</label>
+                        <input type="text" class="form-control" id="validationCustom02" placeholder="Nom" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationCustom03">Adresse mail</label>
+                        <div class="input-group">
+                            <input type="email  " class="form-control" id="validationCustom03"
+                                placeholder="Adresse mail" aria-describedby="inputGroupPrepend" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom04">Adresse</label>
+                        <input type="text" class="form-control" id="validationCustom04" placeholder="Adresse" required>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom05">Code postal</label>
+                        <input type="text" class="form-control" id="validationCustom05" placeholder="Code postal"
+                            required>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom06">Ville</label>
+                        <input type="text" class="form-control" id="validationCustom06" placeholder="Ville" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Accepter les conditions de vente
+                        </label>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Valider</button>
+            </form>
         </div>
 
     </main>
@@ -136,7 +179,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
 
 </body>
 
