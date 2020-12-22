@@ -18,6 +18,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <!--script JS-->
+
+    <!--requète HTTP-->
+    <script src="request.js"></script>
+    <!--affichage des produits-->
+    <script src="index.js"></script>
+
     <!-- style CSS -->
 
     <style>
@@ -44,7 +51,7 @@
             <div class="container-fluid">
                 <nav class="row navbar navbar-expand-sm navbar-light">
                     <a href="./index.html" class="navbar-brand" title="revenir à l'accueil"><img
-                            src="./pics/orinoco-logo.png" alt="logo d'Orinoco" width="120" height="40"></a>
+                            src="./pics/orinoco-logo.png" alt="logo d'Orinoco" width="200" height="70"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -69,10 +76,13 @@
 
     <!-- HERO -->
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col jumbotron bg-light font-italic">
-                <h1 class="h2">De magnifiques oursons faits à la main pour un cadeau unique</h1>
+            <div class="col jumbotron bg-light font-italic mt-4">
+                <h1 class="h2 text-center mb-5">Bienvenue sur Orinoco</h1>
+                <h2 class="h4 w-75 m-auto text-center">Découvrez nos magnifiques oursons faits à la main et offrez un
+                    cadeau unique
+                </h2>
             </div>
         </div>
     </div>
@@ -83,9 +93,12 @@
 
     <main class="container">
 
+        <!-- Les différents produits sont récupérés et ajoutés par script JS -->
+
         <div class="row" id="productsList">
 
         </div>
+
     </main>
 
     <!-- MAIN - END -->
@@ -122,9 +135,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!--script JS-->
-
-    <script src="index.js"></script>
 
     <!-- font-awesome -->
 
