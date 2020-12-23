@@ -65,7 +65,7 @@ function displayElements(elements) {
   );
   link.setAttribute("id", "add-btn");
   link.setAttribute("type", "submit");
-  link.innerHTML = "Acheter maintenant";
+  link.innerHTML = "Ajouter au panier";
   let sixthDiv = document.createElement("div");
   secondDiv.appendChild(sixthDiv);
   sixthDiv.setAttribute("id", "item-add");

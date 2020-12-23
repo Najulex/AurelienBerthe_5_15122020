@@ -15,6 +15,9 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
       /*Objet qui récupère l'id du produit et sa quantité*/
       let itemSelected = {
         id: response._id,
+        name: response.name,
+        image: response.imageUrl,
+        price: response.price,
         quantity,
       };
       /*Condition si panier vide alors on ajoute un à la quantité, 
