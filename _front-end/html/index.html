@@ -18,11 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 
-    <!--requète HTTP-->
-    <script src="request.js"></script>
-    <!--affichage des produits-->
-    <script src="produit.js"></script>
-
     <!-- style CSS -->
 
     <style>
@@ -49,7 +44,7 @@
             <div class="container-fluid">
                 <nav class="row navbar navbar-expand-sm navbar-light">
                     <a href="./index.html" class="navbar-brand" title="revenir à l'accueil"><img
-                            src="./pics/orinoco-logo.png" alt="logo d'Orinoco" width="200" height="70"></a>
+                            src="../pics/orinoco-logo.png" alt="logo d'Orinoco" width="200" height="70"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -73,25 +68,29 @@
     <!-- HEADER-END -->
 
     <!-- HERO -->
+
     <div class="container-fluid">
         <div class="row">
             <div class="col jumbotron bg-light font-italic mt-4">
-                <h1 class="h2 text-center">Personnalisez votre ourson en choisissant sa couleur</h1>
+                <h1 class="h2 text-center mb-5">Bienvenue sur Orinoco</h1>
+                <h2 class="h4 w-75 m-auto text-center">Découvrez nos magnifiques oursons faits à la main et offrez un
+                    cadeau unique
+                </h2>
             </div>
         </div>
     </div>
+
     <!-- HERO - END -->
 
     <!-- MAIN -->
 
-    <main class="container text-justify mb-4">
+    <main class="container">
 
-        <!-- Les différentes caractéristiques sont récupérés et ajoutés par script JS -->
+        <!-- Les différents produits sont récupérés et ajoutés par script JS -->
 
-        <div id="product">
+        <div class="row" id="productsList">
 
         </div>
-        <div id="item-add"></div>
 
     </main>
 
@@ -129,12 +128,20 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <!--ajout des produits au panier-->
-    <script src="ajoutPanier.js"></script>
 
     <!-- font-awesome -->
 
     <script src="https://kit.fontawesome.com/65dcd4bcca.js" crossorigin="anonymous"></script>
+
+    <!--script JS-->
+
+    <!--requète HTTP-->
+
+    <script src="../js/request.js"></script>
+
+    <!--affichage des produits-->
+
+    <script src="../js/index.js"></script>
 
 </body>
 

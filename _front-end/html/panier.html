@@ -32,6 +32,14 @@
         header {
             background-color: #F3EAF1;
         }
+
+        input:invalid {
+            border: 1px solid red;
+        }
+
+        input:valid {
+            border: 1px solid rgb(37, 160, 67);
+        }
     </style>
 
     <title>Orinoco - Panier</title>
@@ -48,7 +56,7 @@
             <div class="container-fluid">
                 <nav class="row navbar navbar-expand-sm navbar-light">
                     <a href="./index.html" class="navbar-brand" title="revenir à l'accueil"><img
-                            src="./pics/orinoco-logo.png" alt="logo d'Orinoco" width="200" height="70"></a>
+                            src="../pics/orinoco-logo.png" alt="logo d'Orinoco" width="200" height="70"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -88,6 +96,44 @@
     <div id='emptyCart' class="container text-center mt-5 mb-5">
         <p>Votre panier est vide</p>
         <p><a href="index.html">Commencez votre shopping !</a></p>
+        <div class="row mt-5 mb-5">
+            <div class="container m-auto">
+                <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="2500">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselControls" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselControls" data-slide-to="1"></li>
+                        <li data-target="#carouselControls" data-slide-to="2"></li>
+                        <li data-target="#carouselControls" data-slide-to="3"></li>
+                        <li data-target="#carouselControls" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../../images/teddy_3.jpg" class="d-block w-100" alt="Etudiant Info School">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../images/teddy_4.jpg" class="d-block w-100" alt="Etudiante Info School">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../images/teddy_1.jpg" class="d-block w-100" alt="Etudiante Info School">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../images/teddy_2.jpg" class="d-block w-100" alt="Etudiante Info School">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../../images/teddy_5.jpg" class="d-block w-100" alt="Etudiante Info School">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Précédent</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Suivant</span>
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 
     <main id="cartDisplay" class="container">
@@ -100,8 +146,10 @@
                         <tr>
                             <th scope="col">Qté</th>
                             <th scope="col">Nom</th>
-                            <th scope="col">Image</th>
+                            <th scope="col" class="d-none d-sm-table-cell">Image</th>
                             <th scope="col">Prix</th>
+                            <th scope="col" class="text-center"><i title="Supprimer le produit du panier"
+                                    class="far fa-trash-alt"></i></th>
                         </tr>
                     </thead>
                     <tbody id="tableItem">
@@ -109,62 +157,57 @@
                 </table>
 
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-4">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total du prix des articles</h5>
-                        <p class="card-text" id="totalPrice">0€</p>
-                        <a href="#" class="card-link" id="clearCart">Vider votre panier</a>
-                        <a href="#" class="card-link">Another link</a>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Total de la commande</h5>
+                        <p class="card-text font-weight-bold" style="font-size: 2rem;" id="totalPrice">0€</p>
+                        <a href="panier.html" class="btn btn-danger m-2 p-2" id="clearCart">Vider mon panier</a>
+                        <button class="btn btn-info m-2 p-2" id="validCart">Valider mon
+                            panier</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-5 mb-5 pb-4 pt-4">
-            <form class="needs-validation" novalidate>
+        <div class="shadow p-4 mt-4 mb-4 container-fluid" style="display: none;" id="form-display">
+
+            <h1 class="h4 mb-5 border-bottom pb-4">Pour passer commande, merci de remplir <span>tous</span> les champs
+                ci-dessous</h1>
+
+            <form>
                 <div class="form-row">
-                    <div class="col-md-4 mb-3">
-                        <label for="validationCustom01">Prénom</label>
-                        <input type="text" class="form-control" id="validationCustom01" placeholder="Prénom" required>
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Nom</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Dupont" required>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationCustom02">Nom</label>
-                        <input type="text" class="form-control" id="validationCustom02" placeholder="Nom" required>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label for="validationCustom03">Adresse mail</label>
-                        <div class="input-group">
-                            <input type="email  " class="form-control" id="validationCustom03"
-                                placeholder="Adresse mail" aria-describedby="inputGroupPrepend" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                        <label for="validationCustom04">Adresse</label>
-                        <input type="text" class="form-control" id="validationCustom04" placeholder="Adresse" required>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom05">Code postal</label>
-                        <input type="text" class="form-control" id="validationCustom05" placeholder="Code postal"
-                            required>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="validationCustom06">Ville</label>
-                        <input type="text" class="form-control" id="validationCustom06" placeholder="Ville" required>
+                    <div class="form-group col-md-6">
+                        <label for="inputForname">Prénom</label>
+                        <input type="text" class="form-control" id="inputForname" placeholder="Jean" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                        <label class="form-check-label" for="invalidCheck">
-                            Accepter les conditions de vente
-                        </label>
+                    <label for="inputEmail">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="dupont.jean@exemple.com"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Adresse</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="123, rue de la liberté"
+                        required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="inputCity">Ville</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="Paris" required>
                     </div>
                 </div>
-                <button class="btn btn-primary" type="submit">Valider</button>
+                <button href="confirmation.html" id="submit-order" type="submit"
+                    class="mt-5 btn btn-primary text-light">Valider ma
+                    commande</button>
             </form>
+
+
         </div>
 
     </main>
@@ -205,7 +248,7 @@
 
     <!--script JS-->
 
-    <script src="panier.js"></script>
+    <script src="../js/panier.js"></script>
 
 </body>
 

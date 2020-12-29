@@ -5,7 +5,7 @@ get("http://localhost:3000/api/teddies").then((response) => {
 });
 
 /* Affichage des différents éléments sur la page d'accueil pour chaque produit
-avec boucle for each pour automatiser la création des balises HTML si ajout de produits*/
+avec boucle for each pour automatiser la création si ajout de produits*/
 
 function displayItems(items) {
   items.forEach((item) => {
@@ -14,7 +14,6 @@ function displayItems(items) {
     firstDiv.classList.add(
       "col-12",
       "col-sm-6",
-      "col-lg-4",
       "d-flex",
       "align-items-stretch"
     );
