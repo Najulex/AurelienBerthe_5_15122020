@@ -77,14 +77,18 @@ function totalPrice() {
 }
 
 /* Suppression de tout le contenu du panier */
-document.getElementById("clearCart").addEventListener("click", function () {
-  localStorage.clear();
-});
+document
+  .getElementById("clearCart")
+  .addEventListener("click", function clearStorage() {
+    localStorage.clear();
+  });
 
 /* Affichage du formulaire à la validation du panier */
-document.getElementById("validCart").addEventListener("click", function () {
-  document.getElementById("form-display").style.display = "block";
-});
+document
+  .getElementById("validCart")
+  .addEventListener("click", function formDisplay() {
+    document.getElementById("form-display").style.display = "block";
+  });
 
 /* au clique sur le bouton de commande, si tous les champs sont correctement complétés alors
 création d'un objet contact avec les infos fournis et redirection vers la page de confirmation 

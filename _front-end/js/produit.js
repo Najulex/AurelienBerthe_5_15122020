@@ -11,15 +11,14 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
 function displayElements(elements) {
   let firstDiv = document.createElement("div");
   document.getElementById("product").appendChild(firstDiv);
-  product.classList.add("card", "mb-4", "border-light", "shadow");
   let img = document.createElement("img");
   firstDiv.appendChild(img);
-  img.classList.add("card-img-top");
+  img.classList.add("card-img-top", "mt-4");
   img.setAttribute("alt", "Ours en peluche");
   img.setAttribute("src", elements.imageUrl);
   let secondDiv = document.createElement("div");
   firstDiv.appendChild(secondDiv);
-  secondDiv.classList.add("card-body", "m-md-5");
+  secondDiv.classList.add("card-body", "m-md-2");
   let thirdDiv = document.createElement("div");
   secondDiv.appendChild(thirdDiv);
   thirdDiv.classList.add("text-center");
@@ -37,7 +36,7 @@ function displayElements(elements) {
   thirdParagraph.innerHTML = elements.price / 100 + "€";
   let fourthDiv = document.createElement("div");
   thirdDiv.appendChild(fourthDiv);
-  fourthDiv.classList.add("input-group", "mt-3");
+  fourthDiv.classList.add("input-group");
   let fifthDiv = document.createElement("div");
   fourthDiv.appendChild(fifthDiv);
   fifthDiv.classList.add("input-group-prepend");
@@ -53,22 +52,6 @@ function displayElements(elements) {
   let option = document.createElement("option");
   select.appendChild(option);
   option.innerHTML = "Choisissez ...";
-  let link = document.createElement("a");
-  thirdDiv.appendChild(link);
-  link.classList.add(
-    "btn",
-    "btn-success",
-    "btn-lg",
-    "text-light",
-    "mt-5",
-    "mb-3"
-  );
-  link.setAttribute("id", "add-btn");
-  link.setAttribute("type", "submit");
-  link.innerHTML = "Ajouter au panier";
-  let sixthDiv = document.createElement("div");
-  secondDiv.appendChild(sixthDiv);
-  sixthDiv.setAttribute("id", "item-add");
 
   /*boucle for pour afficher les couleurs disponibles du produit sélectionné*/
 

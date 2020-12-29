@@ -18,14 +18,7 @@ let order = JSON.stringify({
 
 /* appel de la fonction post qui envoie les infos à l'API et récupère les infos de la commande */
 post("http://localhost:3000/api/teddies/order").then((response2) => {
-  /* affichage de l'id de la commande et des infos du client */
-  document.getElementById("order-id").innerHTML = response2.orderId;
-  document.getElementById("name").innerHTML =
-    contact.lastName + " " + contact.firstName;
-  document.getElementById("address").innerHTML =
-    contact.address + " à " + contact.city;
-  document.getElementById("email").innerHTML = contact.email;
-
+  displayContact(response2);
   /* calcul du coût total de la commande */
   var priceSum = response2.products.reduce((sum, a) => {
     return sum + a.price;
@@ -35,3 +28,13 @@ post("http://localhost:3000/api/teddies/order").then((response2) => {
 
 /* vide les infos stockés en local concernant la commande */
 localStorage.clear();
+
+/* affichage de l'id de la commande et des infos du client */
+function displayContact(info) {
+  document.getElementById("order-id").innerHTML = info.orderId;
+  document.getElementById("name").innerHTML =
+    contact.lastName + " " + contact.firstName;
+  document.getElementById("address").innerHTML =
+    contact.address + " à " + contact.city;
+  document.getElementById("email").innerHTML = contact.email;
+}

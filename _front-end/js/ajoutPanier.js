@@ -1,5 +1,4 @@
 /* Appel fonction get (request.js) pour récupèrer l'id du produit*/
-
 get("http://localhost:3000/api/teddies/" + id).then((response) => {
   /*Fonction appelée au clique sur le bouton acheter*/
   document

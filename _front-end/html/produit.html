@@ -18,6 +18,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <!--requète HTTP-->
+
+    <script src="../js/request.js"></script>
+
+    <!--affichage des produits-->
+
+    <script src="../js/produit.js"></script>
+
+    <!--ajout des produits au panier-->
+
+    <script src="../js/ajoutPanier.js"></script>
+
     <!-- style CSS -->
 
     <style>
@@ -79,14 +91,24 @@
 
     <!-- MAIN -->
 
-    <main class="container text-justify mb-4">
+    <main class="container text-justify mb-4 border shadow">
 
         <!-- Les différentes caractéristiques sont récupérés et ajoutés par script JS -->
 
-        <div id="product">
+        <div>
+            <div id="product">
+
+            </div>
+            <div class="text-center">
+                <button class="btn btn-success text-light mb-4" id="add-btn" type="submit"
+                    style="font-size: 1.4rem;">Ajouter
+                    au
+                    panier</button>
+            </div>
+        </div>
+        <div id="item-add">
 
         </div>
-        <div id="item-add"></div>
 
     </main>
 
@@ -127,20 +149,6 @@
     <!-- font-awesome -->
 
     <script src="https://kit.fontawesome.com/65dcd4bcca.js" crossorigin="anonymous"></script>
-
-    <!-- script JS -->
-
-    <!--requète HTTP-->
-
-    <script src="../js/request.js"></script>
-
-    <!--affichage des produits-->
-
-    <script src="../js/produit.js"></script>
-
-    <!--ajout des produits au panier-->
-
-    <script src="../js/ajoutPanier.js"></script>
 
 </body>
 
