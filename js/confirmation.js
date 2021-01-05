@@ -26,9 +26,6 @@ post("http://localhost:3000/api/teddies/order").then((response2) => {
   document.getElementById("order-price").innerHTML = priceSum / 100 + "€";
 });
 
-/* vide les infos stockés en local concernant la commande */
-localStorage.clear();
-
 /* affichage de l'id de la commande et des infos du client */
 function displayContact(info) {
   document.getElementById("order-id").innerHTML = info.orderId;
@@ -38,3 +35,6 @@ function displayContact(info) {
     contact.address + " à " + contact.city;
   document.getElementById("email").innerHTML = contact.email;
 }
+
+/* vide les infos stockés en local concernant la commande */
+localStorage.clear();

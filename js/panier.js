@@ -90,12 +90,11 @@ document
     document.getElementById("form-display").style.display = "block";
   });
 
-/* au clique sur le bouton de commande, si tous les champs sont correctement complétés alors
-création d'un objet contact avec les infos fournis et redirection vers la page de confirmation 
-sinon alert avec message invitant à remplir le formulaire */
+/* au clique sur le bouton de commande, si tous les champs sont correctement complétés */
 document
   .getElementById("submit-order")
   .addEventListener("click", function (event) {
+    document.getElementById("error-message").innerHTML = "";
     event.preventDefault();
     if (
       document.getElementById("inputName").validity.valid &&
@@ -104,16 +103,49 @@ document
       document.getElementById("inputEmail").validity.valid &&
       document.getElementById("inputCity").validity.valid
     ) {
-      window.location = "confirmation.html";
-      let contact = {
-        firstName: document.getElementById("inputForname").value,
-        lastName: document.getElementById("inputName").value,
-        address: document.getElementById("inputAddress").value,
-        city: document.getElementById("inputCity").value,
-        email: document.getElementById("inputEmail").value,
-      };
-      localStorage.setItem("contact", JSON.stringify(contact));
+      /* création d'un objet contact avec les infos fournis et redirection vers la page de confirmation */
+      validate();
     } else {
-      alert("Champs requis non complétés !");
+      /* sinon alerte avec message invitant à remplir le formulaire  */
+      displayError();
     }
   });
+
+function validate() {
+  window.location = "confirmation.html";
+  let contact = {
+    firstName: document.getElementById("inputForname").value,
+    lastName: document.getElementById("inputName").value,
+    address: document.getElementById("inputAddress").value,
+    city: document.getElementById("inputCity").value,
+    email: document.getElementById("inputEmail").value,
+  };
+  localStorage.setItem("contact", JSON.stringify(contact));
+}
+
+function displayError() {
+  let firstDiv = document.createElement("div");
+  document.getElementById("error-message").appendChild(firstDiv);
+  firstDiv.classList.add(
+    "alert",
+    "alert-danger",
+    "alert-dismissible",
+    "fade",
+    "show",
+    "shadow"
+  );
+  firstDiv.setAttribute("role", "alert");
+  let button = document.createElement("button");
+  firstDiv.appendChild(button);
+  button.classList.add("close");
+  button.setAttribute("type", "button");
+  button.setAttribute("data-dismiss", "alert");
+  button.setAttribute("aria-label", "Close");
+  let span = document.createElement("span");
+  button.appendChild(span);
+  span.setAttribute("aria-hidden", "true");
+  span.innerHTML = "×";
+  let paragraph = document.createElement("p");
+  firstDiv.appendChild(paragraph);
+  paragraph.innerHTML = "Champ(s) requis non complété(s)";
+}

@@ -19,13 +19,10 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
         price: response.price,
         quantity,
       };
-      /*Condition si panier vide alors on ajoute un à la quantité, 
-      on ajoute l'objet sélectionné au tableau et on stocke le tableau en local*/
+      /*Condition si panier vide*/
       if (localStorage.getItem("cart") === null) {
-        quantity++;
-        itemSelection.push(itemSelected);
-        localStorage.setItem("cart", JSON.stringify(itemSelection));
-        newItem = false;
+        /*on ajoute un à la quantité, on ajoute l'objet sélectionné au tableau et on stocke le tableau en local*/
+        addItemEmptyCart();
         /*Sinon vérification si produit déja au panier*/
       } else {
         itemSelection = JSON.parse(localStorage.getItem("cart"));
@@ -47,6 +44,13 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
       displayAlert();
     });
 });
+
+function addItemEmptyCart() {
+  quantity++;
+  itemSelection.push(itemSelected);
+  localStorage.setItem("cart", JSON.stringify(itemSelection));
+  newItem = false;
+}
 
 /*Message d'alerte indiquant la mise au panier du produit*/
 function displayAlert() {

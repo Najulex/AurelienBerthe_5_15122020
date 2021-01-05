@@ -22,12 +22,13 @@ function displayItems(items) {
     secondDiv.classList.add("card", "mb-4", "border-light", "shadow");
     let img = document.createElement("img");
     secondDiv.appendChild(img);
-    img.classList.add("card-img-top", "h-75");
+    secondDiv.setAttribute("style", "border-radius:1.4rem");
+    img.classList.add("card-img-top", "h-75", "p-3");
     img.setAttribute("alt", "Ours en peluche");
+    img.setAttribute("style", "border-radius:1.4rem");
     img.setAttribute("src", item.imageUrl);
     let thirdDiv = document.createElement("div");
     secondDiv.appendChild(thirdDiv);
-    thirdDiv.classList.add("card-body");
     let fourthDiv = document.createElement("div");
     thirdDiv.appendChild(fourthDiv);
     fourthDiv.classList.add("text-center");
