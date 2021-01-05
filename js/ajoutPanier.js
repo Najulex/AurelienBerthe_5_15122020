@@ -1,5 +1,14 @@
 /* Appel fonction get (request.js) pour récupèrer l'id du produit*/
 get("http://localhost:3000/api/teddies/" + id).then((response) => {
+  addItem(response);
+});
+
+/*Array pour stocker les produits mis au panier*/
+let itemSelection = [];
+/*Variable pour la quantité sélectionnée*/
+var quantity = 1;
+
+function addItem(response) {
   /*Fonction appelée au clique sur le bouton acheter*/
   document
     .getElementById("add-btn")
@@ -7,10 +16,6 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
       document.getElementById("item-add").innerHTML = "";
       /*Variable pour spécifier si produit déja dans le panier*/
       var newItem = true;
-      /*Array pour stocker les produits mis au panier*/
-      let itemSelection = [];
-      /*Variable pour la quantité sélectionnée*/
-      var quantity = 1;
       /*Objet qui récupère les infos du produit et sa quantité*/
       let itemSelected = {
         id: response._id,
@@ -19,10 +24,13 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
         price: response.price,
         quantity,
       };
-      /*Condition si panier vide*/
+      /*Condition si panier vide alors on ajoute un à la quantité, 
+    on ajoute l'objet sélectionné au tableau et on stocke le tableau en local*/
       if (localStorage.getItem("cart") === null) {
-        /*on ajoute un à la quantité, on ajoute l'objet sélectionné au tableau et on stocke le tableau en local*/
-        addItemEmptyCart();
+        quantity++;
+        itemSelection.push(itemSelected);
+        localStorage.setItem("cart", JSON.stringify(itemSelection));
+        newItem = false;
         /*Sinon vérification si produit déja au panier*/
       } else {
         itemSelection = JSON.parse(localStorage.getItem("cart"));
@@ -43,13 +51,6 @@ get("http://localhost:3000/api/teddies/" + id).then((response) => {
       }
       displayAlert();
     });
-});
-
-function addItemEmptyCart() {
-  quantity++;
-  itemSelection.push(itemSelected);
-  localStorage.setItem("cart", JSON.stringify(itemSelection));
-  newItem = false;
 }
 
 /*Message d'alerte indiquant la mise au panier du produit*/

@@ -23,7 +23,7 @@ function displayItems(items) {
     let img = document.createElement("img");
     secondDiv.appendChild(img);
     secondDiv.setAttribute("style", "border-radius:1.4rem");
-    img.classList.add("card-img-top", "h-75", "p-3");
+    img.classList.add("card-img-top", "h-75", "p-2");
     img.setAttribute("alt", "Ours en peluche");
     img.setAttribute("style", "border-radius:1.4rem");
     img.setAttribute("src", item.imageUrl);
@@ -31,7 +31,7 @@ function displayItems(items) {
     secondDiv.appendChild(thirdDiv);
     let fourthDiv = document.createElement("div");
     thirdDiv.appendChild(fourthDiv);
-    fourthDiv.classList.add("text-center");
+    fourthDiv.classList.add("text-center", "m-2", "m-sm-1");
     let link = document.createElement("a");
     fourthDiv.appendChild(link);
     link.classList.add("btn", "btn-primary", "stretched-link", "text-light");

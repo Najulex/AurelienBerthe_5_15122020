@@ -60,7 +60,7 @@ if (localStorage.getItem("cart") != null) {
     remove.setAttribute("href", "panier.html");
     icon.classList.add("far", "fa-trash-alt");
     icon.setAttribute("title", "Supprimer");
-    remove.addEventListener("click", function () {
+    remove.addEventListener("click", function removeItem() {
       cartContent.splice(i, 1);
       localStorage.setItem("cart", JSON.stringify(cartContent));
     });
