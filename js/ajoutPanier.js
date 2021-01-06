@@ -61,8 +61,6 @@ function displayAlert() {
     "alert",
     "alert-success",
     "alert-dismissible",
-    "fade",
-    "show",
     "shadow"
   );
   firstDiv.setAttribute("role", "alert");
@@ -74,8 +72,6 @@ function displayAlert() {
   firstDiv.appendChild(button);
   button.classList.add("close");
   button.setAttribute("type", "button");
-  button.setAttribute("data-dismiss", "alert");
-  button.setAttribute("aria-label", "Close");
   let span = document.createElement("span");
   button.appendChild(span);
   span.setAttribute("aria-hidden", "true");
@@ -88,4 +84,7 @@ function displayAlert() {
   link.classList.add("alert-link");
   link.setAttribute("href", "panier.html");
   link.innerHTML = "panier !";
+  button.addEventListener("click", function closeAlert() {
+    document.getElementById("item-add").innerHTML = "";
+  });
 }

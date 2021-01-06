@@ -148,6 +148,9 @@ function displayError() {
   let paragraph = document.createElement("p");
   firstDiv.appendChild(paragraph);
   paragraph.innerHTML = "Champ(s) requis non complété(s)";
+  button.addEventListener("click", function closeAlert() {
+    document.getElementById("error-message").innerHTML = "";
+  });
 }
 
 /* affichage du menu de navigation avec bouton burger */
