@@ -41,3 +41,16 @@ function displayItems(items) {
     link.innerHTML = "Voir " + item.name;
   });
 }
+
+/* affichage du menu de navigation avec bouton burger */
+let nav = document.getElementById("navigation");
+
+document
+  .getElementById("test")
+  .addEventListener("click", function displayNav() {
+    if (nav.className === "d-sm-block d-none") {
+      nav.classList.remove("d-none");
+    } else {
+      nav.classList.add("d-none");
+    }
+  });

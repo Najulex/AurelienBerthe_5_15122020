@@ -149,3 +149,16 @@ function displayError() {
   firstDiv.appendChild(paragraph);
   paragraph.innerHTML = "Champ(s) requis non complété(s)";
 }
+
+/* affichage du menu de navigation avec bouton burger */
+let nav = document.getElementById("navigation");
+
+document
+  .getElementById("test")
+  .addEventListener("click", function displayNav() {
+    if (nav.className === "d-sm-block d-none") {
+      nav.classList.remove("d-none");
+    } else {
+      nav.classList.add("d-none");
+    }
+  });
