@@ -4,9 +4,17 @@ let id = window.location.search.substr(1);
 
 /* Appel fonction get (request.js) pour afficher caractéristiques du produit*/
 
-get("http://localhost:3000/api/teddies/" + id).then((response) => {
-  displayElements(response);
-});
+get("http://localhost:3000/api/teddies/" + id)
+  .then((response) => {
+    displayElements(response);
+  })
+  .catch(() => {
+    document.getElementById("button").innerHTML =
+      "Oh oh! On dirait qu'une erreur de connexion empèche le chargement de votre ourson, merci de rééssayer plus tard.";
+    document
+      .getElementById("button")
+      .classList.add("h4", "text-center", "bg-danger", "text-light", "mt-2");
+  });
 
 function displayElements(elements) {
   let firstDiv = document.createElement("div");

@@ -6,6 +6,9 @@ function get(url) {
       if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         var response = JSON.parse(this.responseText);
         resolve(response);
+      } else if (this.readyState == XMLHttpRequest.DONE && this.status != 200) {
+        var status = JSON.parse(this.status);
+        reject(status);
       }
     };
     request.open("GET", url);
@@ -21,9 +24,12 @@ function post(url) {
     request2.setRequestHeader("Content-Type", "application/json");
     request2.send(order);
     request2.onreadystatechange = function () {
-      if (this.readyState == XMLHttpRequest.DONE) {
+      if (this.readyState == XMLHttpRequest.DONE && this.status != 0) {
         var response2 = JSON.parse(this.responseText);
         resolve(response2);
+      } else if (this.readyState == XMLHttpRequest.DONE && this.status == 0) {
+        var status = JSON.parse(this.status);
+        reject(status);
       }
     };
   });

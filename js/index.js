@@ -1,8 +1,16 @@
 /* Appel fonction get (request.js) pour afficher produits*/
 
-get("http://localhost:3000/api/teddies").then((response) => {
-  displayItems(response);
-});
+get("http://localhost:3000/api/teddies")
+  .then((response) => {
+    displayItems(response);
+  })
+  .catch(() => {
+    document.getElementById("productsList").innerHTML =
+      "Oh oh! On dirait qu'une erreur de connexion empèche le chargement des oursons, merci de rééssayer plus tard.";
+    document
+      .getElementById("productsList")
+      .classList.add("h4", "text-center", "bg-danger", "text-light");
+  });
 
 /* Affichage des différents éléments sur la page d'accueil pour chaque produit
   avec boucle for each pour automatiser la création si ajout de produits*/
